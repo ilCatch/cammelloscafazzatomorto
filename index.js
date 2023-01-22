@@ -66,7 +66,7 @@ const rawUrlRegex = new RegExp(
   `https?://(([^\\s]*)\\.)?amazon\\.${amazon_tld}/?([^\\s]*)`,
   "ig"
   ) && new RegExp(
-  `https?://(([^\\s]*)\\.)?amzn\\.${amazon_tld}/d/?([^\\s]*)`, //provare a mettere .eu/d/ 
+  `https?://(([^\\s]*)\\.)?amzn\\.eu/d/?([^\\s]*)`, //provare a mettere .eu/d/ 
   "ig"
   );
 
