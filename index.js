@@ -1,5 +1,6 @@
 const TelegramBot = require("node-telegram-bot-api");
 const fetch = require("node-fetch");
+const primemsg = process.env.PRIMEMSG; 
 
 const fullURLRegex =
   /https?:\/\/(([^\s]*)\.)?amazon\.([a-z.]{2,5})(\/d\/([^\s]*)|\/([^\s]*)\/?(?:dp|o|gp|-)\/)(aw\/d\/|product\/)?(B[0-9]{2}[0-9A-Z]{7}|[0-9]{9}(?:X|[0-9]))([^\s]*)/gi;
@@ -20,6 +21,11 @@ if (!process.env.TELEGRAM_BOT_TOKEN) {
 
 if (!process.env.AMAZON_TAG) {
   console.log("Missing AMAZON_TAG env variable");
+  process.exit(1);
+}
+
+if (!process.env.PRIMEMSG) {
+  console.log("Missing PRIMEMSG env variable");
   process.exit(1);
 }
 
@@ -98,6 +104,12 @@ function log(msg) {
   const date = new Date().toISOString().replace(/T/, " ").replace(/\..+/, "");
   console.log(date + " " + msg);
 }
+
+bot.onText(/\/prime/, (msg) => {
+    const chatId = msg.chat.id;
+
+    bot.sendMessage(chatId, PRIMEMSG);
+});
 
 async function shortenURL(url) {
   const headers = {
