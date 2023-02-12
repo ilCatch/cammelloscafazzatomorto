@@ -105,7 +105,7 @@ function log(msg) {
   console.log(date + " " + msg);
 }
 
-bot.onText(/\/prime/, (msg) => {
+bot.onText(/\/prime/, (msg, match) => {
     const chatId = msg.chat.id;
 
     bot.sendMessage(chatId, PRIMEMSG);
