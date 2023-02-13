@@ -108,7 +108,7 @@ function log(msg) {
 bot.onText(/\/prime/, (msg, match) => {
     const chatId = msg.chat.id;
 
-    bot.sendMessage(chatId, PRIMEMSG);
+    bot.sendMessage(chatId, primemsg);
 });
 
 async function shortenURL(url) {
