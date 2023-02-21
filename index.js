@@ -2,10 +2,15 @@ const TelegramBot = require("node-telegram-bot-api");
 const fetch = require("node-fetch");
 const primemsg = process.env.PRIMEMSG; 
 const AmazonAdvertisingAPI = require('amazon-advertising-api');
-const amazonClient = new AmazonAdvertisingAPI({
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-});
+const config = {
+  clientId: 'client-id',
+  clientSecret: 'client-secret',
+  refreshToken: 'refresh-token',
+  region: 'na', // Change this to your region
+};
+
+const client = new AmazonAdvertisingAPI.Ads(config);
+
 const fullURLRegex =
   /https?:\/\/(([^\s]*)\.)?amazon\.([a-z.]{2,5})(\/d\/([^\s]*)|\/([^\s]*)\/?(?:dp|o|gp|-)\/)(aw\/d\/|product\/)?(B[0-9]{2}[0-9A-Z]{7}|[0-9]{9}(?:X|[0-9]))([^\s]*)/gi;
 const euURLRegex =
