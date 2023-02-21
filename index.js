@@ -1,6 +1,7 @@
 const TelegramBot = require("node-telegram-bot-api");
 const fetch = require("node-fetch");
 const primemsg = process.env.PRIMEMSG; 
+const AmazonAdvertisingAPI = require('amazon-advertising-api');
 const amazonClient = new AmazonAdvertisingAPI({
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
