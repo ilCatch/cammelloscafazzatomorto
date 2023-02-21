@@ -6,9 +6,9 @@ const config = {
   clientId: 'client-id',
   clientSecret: 'client-secret',
   refreshToken: 'refresh-token',
-  region: 'na', // Change this to your region
+  region: 'eu', // Change this to your region
 };
-
+const ads = new AmazonAdvertisingAPI.Ads(credentials);
 const client = new AmazonAdvertisingAPI.Ads(config);
 
 const fullURLRegex =
