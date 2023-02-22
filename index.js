@@ -106,11 +106,12 @@ function log(msg) {
 }
 
 bot.onText(/\/prime/, (msg, match) => {
-    const chatId = msg.chat.id;
-  const updatedprimemsg = primemsg
+  const chatId = msg.chat.id;
+
+  bot.sendMessage(chatId, updatedprimemsg);
+    const updatedprimemsg = primemsg
     .replace("{USER}", buildMention(user))
     .replace(/\\n/g, "\n");
-  bot.sendMessage(chatId, updatedprimemsg);
 });
 
 async function shortenURL(url) {
