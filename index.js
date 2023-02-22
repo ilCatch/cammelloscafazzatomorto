@@ -107,8 +107,7 @@ function log(msg) {
 
 bot.onText(/\/prime/, (msg, match) => {
     const chatId = msg.chat.id;
-   const updatedprimemsg = primemsg.replace(/\\n/g, "\n")
-   const updatedprimemsg = primemsg.replace("{USER}", buildMention(user))
+   const updatedprimemsg = primemsg.replace(/\\n/g, "\n").replace("{USER}", buildMention(user));
     bot.sendMessage(chatId, updatedprimemsg);
      
 
