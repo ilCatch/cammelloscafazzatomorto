@@ -107,7 +107,7 @@ function log(msg) {
 
 bot.onText(/\/prime/, (msg, match) => {
   const chatId = msg.chat.id;
-  const updatedprimemsg = primemsg.replace(/\\n/g, "\n").replace("{USER}", buildMentionpvt(user.id, user.name));
+  const updatedprimemsg = primemsg.replace(/\\n/g, "\n").replace(buildMention(user),"{USER}");
    bot.sendMessage(chatId, updatedprimemsg);
 
 });
@@ -155,11 +155,6 @@ async function getAmazonURL(element) {
       ? buildAmazonUrl(element.asin)
       : buildRawAmazonUrl(element);
   return shorten_links ? await shortenURL(url) : url;
-}
-
-function buildMentionpvt(userId, userName) {
-  const mention = `[${userName}](tg://user?id=${userId})`;
-  return mention;
 }
 
 function buildMention(user) {
