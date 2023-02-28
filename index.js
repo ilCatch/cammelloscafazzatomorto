@@ -110,7 +110,7 @@ bot.onText(/\/prime/, (msg, match) => {
   const user = msg.from;
   const updatedprimemsg = primemsg.replace(/\\n/g, "\n").replace("{USER}", buildMention(user));
    bot.sendMessage(chatId, updatedprimemsg);
-console.log("comando Prime" + msg.from );
+console.log("comando Prime" + buildMention(user) );
 });
 
 async function shortenURL(url) {
